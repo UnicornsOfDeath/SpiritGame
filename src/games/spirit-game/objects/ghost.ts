@@ -30,6 +30,7 @@ export class Ghost extends Phaser.GameObjects.Sprite {
   
     // physics
     this.scene.physics.world.enable(this);
+    this.body.setCollideWorldBounds(true);
 
     // image
     this.setOrigin(0.5, 0.5);

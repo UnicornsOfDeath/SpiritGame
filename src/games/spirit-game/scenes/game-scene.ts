@@ -78,11 +78,6 @@ export class GameScene extends Phaser.Scene {
     this.convertObjects();
 
     // collider layer and obstacles
-    this.ghosts.children.each((ghost: Ghost) => {
-      this.physics.add.collider(ghost, this.layer);
-      this.physics.add.collider(ghost, this.obstacles);
-    });
-
     this.hoomans.children.each((hooman: Hooman) => {
       this.physics.add.collider(hooman, this.layer, hooman.onHitObstacle, null);
       this.physics.add.collider(hooman, this.obstacles, hooman.onHitObstacle, null);

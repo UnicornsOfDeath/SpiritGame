@@ -14,7 +14,7 @@ const config: GameConfig = {
   title: "Tank",
   url: "https://github.com/digitsensitive/phaser3-typescript",
   version: "1.0",
-  width: 480,
+  width: 448,
   height: 256,
   zoom: 2.4,
   type: Phaser.AUTO,
