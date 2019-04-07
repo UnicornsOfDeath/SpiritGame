@@ -7,6 +7,7 @@
 
 import { Player } from "../objects/player";
 import { Enemy } from "../objects/enemy";
+import { Ghost } from "../objects/ghost";
 import { Obstacle } from "../objects/obstacles/obstacle";
 
 export class GameScene extends Phaser.Scene {
@@ -15,10 +16,9 @@ export class GameScene extends Phaser.Scene {
   private layer: Phaser.Tilemaps.StaticTilemapLayer;
 
   private player: Player;
+  private ghost1: Ghost;
   private enemies: Phaser.GameObjects.Group;
   private obstacles: Phaser.GameObjects.Group;
-
-  private target: Phaser.Math.Vector2;
 
   constructor() {
     super({
@@ -96,11 +96,12 @@ export class GameScene extends Phaser.Scene {
       );
     }, this);
 
-    this.cameras.main.startFollow(this.player);
+    this.cameras.main.startFollow(this.ghost1);
   }
 
   update(): void {
     this.player.update();
+    this.ghost1.update();
 
     this.enemies.children.each((enemy: Enemy) => {
       enemy.update();
@@ -123,14 +124,16 @@ export class GameScene extends Phaser.Scene {
     const objects = this.map.getObjectLayer("objects").objects as any[];
 
     objects.forEach(object => {
-      if (object.type === "player") {
+      switch (object.type) {
+        case "player": {
         this.player = new Player({
           scene: this,
           x: object.x,
           y: object.y,
           key: "tankBlue"
         });
-      } else if (object.type === "enemy") {
+      }
+      case "enemy": {
         let enemy = new Enemy({
           scene: this,
           x: object.x,
@@ -139,7 +142,16 @@ export class GameScene extends Phaser.Scene {
         });
 
         this.enemies.add(enemy);
-      } else {
+      }
+      case "ghost1": {
+        this.ghost1 = new Ghost({
+          scene: this,
+          x: object.x,
+          y: object.y,
+          key: "ghost1"
+        });
+      }
+      default: {
         let obstacle = new Obstacle({
           scene: this,
           x: object.x,
@@ -149,6 +161,7 @@ export class GameScene extends Phaser.Scene {
 
         this.obstacles.add(obstacle);
       }
+    }
     });
   }
 
