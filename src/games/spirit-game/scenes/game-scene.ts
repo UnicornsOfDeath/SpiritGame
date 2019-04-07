@@ -98,6 +98,16 @@ export class GameScene extends Phaser.Scene {
     this.hoomans.children.each((hooman: Hooman) => {
       hooman.update();
     }, this);
+
+    // Scare hoomans
+    this.ghosts.children.each((ghost: Ghost) => {
+      this.hoomans.children.each((hooman: Hooman) => {
+        const distance = Phaser.Math.Distance.Between(ghost.x, ghost.y, hooman.x, hooman.y);
+        if (distance < 300) {
+          hooman.onScared(ghost);
+        }
+      }, this);
+    }, this);
   }
 
   private convertObjects(): void {

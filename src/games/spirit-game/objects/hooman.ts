@@ -1,3 +1,5 @@
+import { Ghost } from "./ghost";
+
 export class Hooman extends Phaser.GameObjects.Sprite {
     // variables
     private speed: number;
@@ -36,6 +38,11 @@ export class Hooman extends Phaser.GameObjects.Sprite {
       hooman.x -= hooman.moveVel.x * 2;
       hooman.y -= hooman.moveVel.y * 2;
       hooman.moveVel = hooman.randomMoveVel();
+    }
+
+    onScared(ghost: Ghost) {
+      this.moveVel = new Phaser.Math.Vector2(this.x, this.y).subtract(new Phaser.Math.Vector2(ghost.x, ghost.y));
+      this.moveVel.normalize();
     }
 
     private randomMoveVel(): Phaser.Math.Vector2 {
