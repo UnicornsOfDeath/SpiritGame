@@ -23,7 +23,8 @@ export class Ghost extends Phaser.GameObjects.Sprite {
     // image
     this.setOrigin(0.5, 0.5);
     this.setDepth(0);
-    this.angle = 180;
+    this.setScale(4);
+    this.texture.setFilter(Phaser.Textures.FilterMode.NEAREST);
 
     // input
     this.cursors = this.scene.input.keyboard.createCursorKeys();

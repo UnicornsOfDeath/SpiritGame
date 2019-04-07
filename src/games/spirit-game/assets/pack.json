@@ -15,12 +15,12 @@
       {
         "type": "image",
         "key": "tankBlue",
-        "url": "./src/games/spirit-game/assets/sprites/spirit-game-blue.png"
+        "url": "./src/games/spirit-game/assets/sprites/tank-blue.png"
       },
       {
         "type": "image",
         "key": "tankRed",
-        "url": "./src/games/spirit-game/assets/sprites/spirit-game-red.png"
+        "url": "./src/games/spirit-game/assets/sprites/tank-red.png"
       },
       {
         "type": "image",
@@ -83,19 +83,31 @@
         "url": "./src/games/spirit-game/assets/obstacles/tree-large.png"
       },
       {
-        "type": "sprite",
+        "type": "spritesheet",
         "key": "ghost1",
-        "url": "./src/games/spirit-game/assets/sprites/ghost1.png"
+        "url": "./src/games/spirit-game/assets/sprites/ghost1.png",
+        "frameConfig": {
+          "frameWidth": 16,
+          "frameHeight": 16
+        }
       },
       {
-        "type": "sprite",
+        "type": "spritesheet",
         "key": "ghost2",
-        "url": "./src/games/spirit-game/assets/sprites/ghost2.png"
+        "url": "./src/games/spirit-game/assets/sprites/ghost2.png",
+        "frameConfig": {
+          "frameWidth": 16,
+          "frameHeight": 16
+        }
       },
       {
-        "type": "sprite",
+        "type": "spritesheet",
         "key": "ghost3",
-        "url": "./src/games/spirit-game/assets/sprites/ghost3.png"
+        "url": "./src/games/spirit-game/assets/sprites/ghost3.png",
+        "frameConfig": {
+          "frameWidth": 16,
+          "frameHeight": 16
+        }
       }
     ]
   }
