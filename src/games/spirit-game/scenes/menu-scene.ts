@@ -38,7 +38,7 @@ export class MenuScene extends Phaser.Scene {
         this.sys.canvas.width / 2 - 120,
         this.sys.canvas.height / 2 - 100,
         "font",
-        "TANK",
+        "SPIRIT",
         100
       )
     );

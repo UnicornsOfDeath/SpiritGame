@@ -21,17 +21,6 @@
          "objects":[
                 {
                  "height":80,
-                 "id":117,
-                 "name":"",
-                 "rotation":0,
-                 "type":"player",
-                 "visible":true,
-                 "width":80,
-                 "x":320,
-                 "y":240
-                }, 
-                {
-                 "height":80,
                  "id":129,
                  "name":"",
                  "rotation":0,
@@ -645,7 +634,7 @@
  "nextobjectid":192,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.2.2",
+ "tiledversion":"1.2.3",
  "tileheight":80,
  "tilesets":[
         {
