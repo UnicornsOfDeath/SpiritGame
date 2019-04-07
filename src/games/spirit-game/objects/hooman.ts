@@ -33,9 +33,6 @@ export class Hooman extends Phaser.GameObjects.Sprite {
     }
 
     onHitObstacle(hooman: Hooman): void {
-      // Bump back a bit
-      hooman.x -= hooman.moveVel.x * 2;
-      hooman.y -= hooman.moveVel.y * 2;
       hooman.moveVel = hooman.randomMoveVel();
     }
 
