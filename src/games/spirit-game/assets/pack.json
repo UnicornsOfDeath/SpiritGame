@@ -49,8 +49,8 @@
       },
       {
         "type": "image",
-        "key": "tiles",
-        "url": "src/games/spirit-game/assets/tiles/tiles.png"
+        "key": "tiles_dungeon_v1.1",
+        "url": "src/games/spirit-game/assets/tiles/tiles_dungeon_v1.1.png"
       },
       {
         "type": "image",

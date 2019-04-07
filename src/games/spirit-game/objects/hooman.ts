@@ -17,7 +17,7 @@ export class Hooman extends Phaser.GameObjects.Sprite {
   
     private initImage() {
       // variables
-      this.speed = 100;
+      this.speed = 25;
       this.moveVel = this.randomMoveVel();
     
       // physics
@@ -26,7 +26,6 @@ export class Hooman extends Phaser.GameObjects.Sprite {
       // image
       this.setOrigin(0.5, 0.5);
       this.setDepth(0);
-      this.setScale(4);
 
       // animation
       this.anims.load(this.key + '_walk');
@@ -41,8 +40,8 @@ export class Hooman extends Phaser.GameObjects.Sprite {
     }
 
     onScared(ghost: Ghost) {
-      this.moveVel = new Phaser.Math.Vector2(this.x, this.y).subtract(new Phaser.Math.Vector2(ghost.x, ghost.y));
-      this.moveVel.normalize();
+      const v = new Phaser.Math.Vector2(this.x, this.y).subtract(new Phaser.Math.Vector2(ghost.x, ghost.y));
+      this.moveVel = this.moveVel.add(v);
     }
 
     private randomMoveVel(): Phaser.Math.Vector2 {
@@ -72,6 +71,7 @@ export class Hooman extends Phaser.GameObjects.Sprite {
   
     private handleInput() {
       // move
+      this.moveVel.normalize();
       let v = this.moveVel.clone();
       v = v.scale(this.speed);
       this.body.velocity = v;

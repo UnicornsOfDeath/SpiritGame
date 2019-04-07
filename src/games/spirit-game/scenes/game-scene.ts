@@ -60,7 +60,7 @@ export class GameScene extends Phaser.Scene {
     // create tilemap from tiled JSON
     this.map = this.make.tilemap({ key: "freshMap" });
 
-    this.tileset = this.map.addTilesetImage("tiles");
+    this.tileset = this.map.addTilesetImage("tiles_dungeon_v1.1");
     this.layer = this.map.createStaticLayer("tileLayer", this.tileset, 0, 0);
     this.layer.setCollisionByProperty({ collide: true });
 
@@ -103,7 +103,7 @@ export class GameScene extends Phaser.Scene {
     this.ghosts.children.each((ghost: Ghost) => {
       this.hoomans.children.each((hooman: Hooman) => {
         const distance = Phaser.Math.Distance.Between(ghost.x, ghost.y, hooman.x, hooman.y);
-        if (distance < 300) {
+        if (distance < 75) {
           hooman.onScared(ghost);
         }
       }, this);

@@ -25,8 +25,8 @@ export class Ghost extends Phaser.GameObjects.Sprite {
 
   private initImage() {
     // variables
-    this.accel = 30;
-    this.maxSpeed = 400;
+    this.accel = 7;
+    this.maxSpeed = 100;
   
     // physics
     this.scene.physics.world.enable(this);
@@ -34,7 +34,6 @@ export class Ghost extends Phaser.GameObjects.Sprite {
     // image
     this.setOrigin(0.5, 0.5);
     this.setDepth(0);
-    this.setScale(4);
 
     // input
     this.cursors = this.scene.input.keyboard.createCursorKeys();
