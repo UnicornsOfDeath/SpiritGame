@@ -4,98 +4,98 @@
       {
         "type": "tilemapTiledJSON",
         "key": "levelMap",
-        "url": "src/games/tank/assets/maps/levelMap.json"
+        "url": "src/games/spirit-game/assets/maps/levelMap.json"
       },
       {
         "type": "bitmapFont",
         "key": "font",
-        "textureURL": "src/games/tank/assets/font/font.png",
-        "fontDataURL": "src/games/tank/assets/font/font.fnt"
+        "textureURL": "src/games/spirit-game/assets/font/font.png",
+        "fontDataURL": "src/games/spirit-game/assets/font/font.fnt"
       },
       {
         "type": "image",
         "key": "tankBlue",
-        "url": "./src/games/tank/assets/sprites/tank-blue.png"
+        "url": "./src/games/spirit-game/assets/sprites/spirit-game-blue.png"
       },
       {
         "type": "image",
         "key": "tankRed",
-        "url": "./src/games/tank/assets/sprites/tank-red.png"
+        "url": "./src/games/spirit-game/assets/sprites/spirit-game-red.png"
       },
       {
         "type": "image",
         "key": "barrelBlue",
-        "url": "./src/games/tank/assets/sprites/barrel-blue.png"
+        "url": "./src/games/spirit-game/assets/sprites/barrel-blue.png"
       },
       {
         "type": "image",
         "key": "barrelRed",
-        "url": "./src/games/tank/assets/sprites/barrel-red.png"
+        "url": "./src/games/spirit-game/assets/sprites/barrel-red.png"
       },
       {
         "type": "image",
         "key": "bulletBlue",
-        "url": "./src/games/tank/assets/sprites/bullet-blue.png"
+        "url": "./src/games/spirit-game/assets/sprites/bullet-blue.png"
       },
       {
         "type": "image",
         "key": "bulletRed",
-        "url": "./src/games/tank/assets/sprites/bullet-red.png"
+        "url": "./src/games/spirit-game/assets/sprites/bullet-red.png"
       },
       {
         "type": "image",
         "key": "tiles",
-        "url": "src/games/tank/assets/tiles/tiles.png"
+        "url": "src/games/spirit-game/assets/tiles/tiles.png"
       },
       {
         "type": "image",
         "key": "barrelGreyTop",
-        "url": "./src/games/tank/assets/obstacles/barrel-grey-top.png"
+        "url": "./src/games/spirit-game/assets/obstacles/barrel-grey-top.png"
       },
       {
         "type": "image",
         "key": "barrelGreySideRust",
-        "url": "./src/games/tank/assets/obstacles/barrel-grey-side-rust.png"
+        "url": "./src/games/spirit-game/assets/obstacles/barrel-grey-side-rust.png"
       },
       {
         "type": "image",
         "key": "barrelGreySide",
-        "url": "./src/games/tank/assets/obstacles/barrel-grey-side.png"
+        "url": "./src/games/spirit-game/assets/obstacles/barrel-grey-side.png"
       },
       {
         "type": "image",
         "key": "barrelRedTop",
-        "url": "./src/games/tank/assets/obstacles/barrel-red-top.png"
+        "url": "./src/games/spirit-game/assets/obstacles/barrel-red-top.png"
       },
       {
         "type": "image",
         "key": "barrelRedSide",
-        "url": "./src/games/tank/assets/obstacles/barrel-red-side.png"
+        "url": "./src/games/spirit-game/assets/obstacles/barrel-red-side.png"
       },
       {
         "type": "image",
         "key": "treeSmall",
-        "url": "./src/games/tank/assets/obstacles/tree-small.png"
+        "url": "./src/games/spirit-game/assets/obstacles/tree-small.png"
       },
       {
         "type": "image",
         "key": "treeLarge",
-        "url": "./src/games/tank/assets/obstacles/tree-large.png"
+        "url": "./src/games/spirit-game/assets/obstacles/tree-large.png"
       },
       {
         "type": "sprite",
         "key": "ghost1",
-        "url": "./src/games/tank/assets/sprites/ghost1.png"
+        "url": "./src/games/spirit-game/assets/sprites/ghost1.png"
       },
       {
         "type": "sprite",
         "key": "ghost2",
-        "url": "./src/games/tank/assets/sprites/ghost2.png"
+        "url": "./src/games/spirit-game/assets/sprites/ghost2.png"
       },
       {
         "type": "sprite",
         "key": "ghost3",
-        "url": "./src/games/tank/assets/sprites/ghost3.png"
+        "url": "./src/games/spirit-game/assets/sprites/ghost3.png"
       }
     ]
   }
