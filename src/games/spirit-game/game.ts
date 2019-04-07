@@ -27,11 +27,11 @@ const config: GameConfig = {
     default: "arcade",
     arcade: {
       gravity: { y: 0 },
-      debug: false
+      debug: true
     }
   },
   backgroundColor: "#000000",
-  render: { pixelArt: false, antialias: true }
+  render: { pixelArt: true, antialias: false }
 };
 
 export class Game extends Phaser.Game {

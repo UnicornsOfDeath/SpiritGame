@@ -16,15 +16,14 @@ export class Hooman extends Phaser.GameObjects.Sprite {
       // variables
       this.speed = 100;
       this.moveVel = this.randomMoveVel();
+    
+      // physics
+      this.scene.physics.world.enable(this);
   
       // image
       this.setOrigin(0.5, 0.5);
       this.setDepth(0);
       this.setScale(4);
-      this.texture.setFilter(Phaser.Textures.FilterMode.NEAREST);
-    
-      // physics
-      this.scene.physics.world.enable(this);
     }
 
     onHitObstacle(hooman: Hooman): void {
