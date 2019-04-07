@@ -14,8 +14,7 @@ export class GameScene extends Phaser.Scene {
   private tileset: Phaser.Tilemaps.Tileset;
   private layer: Phaser.Tilemaps.StaticTilemapLayer;
 
-  private ghost1: Ghost;
-  private enemies: Phaser.GameObjects.Group;
+  private ghosts: Phaser.GameObjects.Group;
   private hoomans: Phaser.GameObjects.Group;
   private obstacles: Phaser.GameObjects.Group;
 
@@ -70,8 +69,8 @@ export class GameScene extends Phaser.Scene {
       runChildUpdate: true
     });
 
-    this.enemies = this.add.group({
-      /*classType: Enemy*/
+    this.ghosts = this.add.group({
+      /*classType: Ghost*/
     });
     this.hoomans = this.add.group({
       /*classType: Hooman*/
@@ -79,20 +78,22 @@ export class GameScene extends Phaser.Scene {
     this.convertObjects();
 
     // collider layer and obstacles
-    this.physics.add.collider(this.ghost1, this.layer);
-    this.physics.add.collider(this.ghost1, this.obstacles);
+    this.ghosts.children.each((ghost: Ghost) => {
+      this.physics.add.collider(ghost, this.layer);
+      this.physics.add.collider(ghost, this.obstacles);
+    });
 
     this.hoomans.children.each((hooman: Hooman) => {
       this.physics.add.collider(hooman, this.layer, hooman.onHitObstacle, null);
       this.physics.add.collider(hooman, this.obstacles, hooman.onHitObstacle, null);
       this.physics.add.collider(hooman, this.hoomans, hooman.onHitObstacle, null);
     })
-
-    this.cameras.main.startFollow(this.ghost1);
   }
 
   update(): void {
-    this.ghost1.update();
+    this.ghosts.children.each((ghost: Ghost) => {
+      ghost.update();
+    }, this);
 
     this.hoomans.children.each((hooman: Hooman) => {
       hooman.update();
@@ -106,12 +107,33 @@ export class GameScene extends Phaser.Scene {
     objects.forEach(object => {
       switch (object.type) {
       case "ghost1": {
-        this.ghost1 = new Ghost({
+        const ghost = new Ghost({
           scene: this,
           x: object.x,
           y: object.y,
           key: "ghost1"
         });
+        this.ghosts.add(ghost);
+        break;
+      }
+      case "ghost2": {
+        const ghost = new Ghost({
+          scene: this,
+          x: object.x,
+          y: object.y,
+          key: "ghost2"
+        });
+        this.ghosts.add(ghost);
+        break;
+      }
+      case "ghost3": {
+        const ghost = new Ghost({
+          scene: this,
+          x: object.x,
+          y: object.y,
+          key: "ghost3"
+        });
+        this.ghosts.add(ghost);
         break;
       }
       case "hooman": {
