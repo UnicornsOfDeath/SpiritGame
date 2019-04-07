@@ -100,6 +100,9 @@ export class GameScene extends Phaser.Scene {
         const distance = Phaser.Math.Distance.Between(ghost.x, ghost.y, hooman.x, hooman.y);
         if (distance < 75) {
           hooman.onScared(ghost);
+          if (distance < 35) {
+            hooman.onPanic();
+          }
         }
       }, this);
     }, this);

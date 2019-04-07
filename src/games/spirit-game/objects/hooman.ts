@@ -5,6 +5,7 @@ export class Hooman extends Phaser.GameObjects.Sprite {
     private speed: number;
     private moveVel: Phaser.Math.Vector2;
     private key: string;
+    private panicCounter: integer;
   
     constructor(params) {
       // Select random key
@@ -41,6 +42,10 @@ export class Hooman extends Phaser.GameObjects.Sprite {
       this.moveVel = this.moveVel.add(v);
     }
 
+    onPanic() {
+      this.panicCounter = 100;
+    }
+
     private randomMoveVel(): Phaser.Math.Vector2 {
       switch (Phaser.Math.Between(0, 3)) {
         case 0: {
@@ -59,6 +64,9 @@ export class Hooman extends Phaser.GameObjects.Sprite {
     }
   
     update(): void {
+      if (this.panicCounter > 0) {
+        this.panicCounter--;
+      }
       if (this.active) {
         this.handleInput();
       } else {
@@ -71,6 +79,10 @@ export class Hooman extends Phaser.GameObjects.Sprite {
       this.moveVel.normalize();
       let v = this.moveVel.clone();
       v = v.scale(this.speed);
+      if (this.panicCounter > 0)
+      {
+        v = v.scale(3);
+      }
       this.body.velocity = v;
     }
   }
