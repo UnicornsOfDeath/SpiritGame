@@ -7,6 +7,11 @@
         "url": "src/games/spirit-game/assets/maps/levelMap.json"
       },
       {
+        "type": "tilemapTiledJSON",
+        "key": "freshMap",
+        "url": "src/games/spirit-game/assets/maps/freshMap.json"
+      },
+      {
         "type": "bitmapFont",
         "key": "font",
         "textureURL": "src/games/spirit-game/assets/font/font.png",
