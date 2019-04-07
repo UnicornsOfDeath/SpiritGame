@@ -26,7 +26,7 @@ export class Hooman extends Phaser.GameObjects.Sprite {
       this.setDepth(0);
       this.setScale(4);
 
-      // Animation
+      // animation
       this.anims.load(this.key + '_walk');
       this.anims.play(this.key + '_walk');
     }

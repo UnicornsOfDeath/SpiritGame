@@ -44,6 +44,19 @@ export class GameScene extends Phaser.Scene {
         this.anims.create(config);
       }
     }
+    for (let number of [1, 2, 3]) {
+      const key = `ghost${number}`
+      const config = {
+        key: key,
+        frames: this.anims.generateFrameNumbers(key, {
+          frames: [0, 1]
+        }),
+        frameRate: 6,
+        yoyo: false,
+        repeat: -1
+      };
+      this.anims.create(config);
+    }
 
     // create tilemap from tiled JSON
     this.map = this.make.tilemap({ key: "freshMap" });

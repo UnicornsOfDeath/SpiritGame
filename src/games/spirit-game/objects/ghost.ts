@@ -28,6 +28,10 @@ export class Ghost extends Phaser.GameObjects.Sprite {
 
     // input
     this.cursors = this.scene.input.keyboard.createCursorKeys();
+
+    // animation
+    this.anims.load('ghost1');
+    this.anims.play('ghost1');
   }
 
   update(): void {
@@ -61,5 +65,8 @@ export class Ghost extends Phaser.GameObjects.Sprite {
       v.normalize();
       this.body.velocity = v.scale(this.maxSpeed);
     }
+
+    // Face left/right based on velocity
+    this.flipX = this.body.velocity.x > 0;
   }
 }
