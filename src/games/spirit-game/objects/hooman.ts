@@ -6,7 +6,9 @@ export class Hooman extends Phaser.GameObjects.Sprite {
     private moveVel: Phaser.Math.Vector2;
     private key: string;
     private panicCounter: integer;
-  
+
+    playedSound: boolean;
+
     constructor(params) {
       // Select random key
       super(params.scene, params.x, params.y, 'adventurer_f1', params.frame);
@@ -31,6 +33,9 @@ export class Hooman extends Phaser.GameObjects.Sprite {
       // animation
       this.anims.load(this.key + '_walk');
       this.anims.play(this.key + '_walk');
+
+      // sound and shit
+      this.playedSound = false;
     }
 
     onHitObstacle(hooman: Hooman): void {
@@ -86,4 +91,3 @@ export class Hooman extends Phaser.GameObjects.Sprite {
       this.body.velocity = v;
     }
   }
-  

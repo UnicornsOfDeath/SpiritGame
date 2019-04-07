@@ -77,6 +77,10 @@ export class GameScene extends Phaser.Scene {
     });
     this.convertObjects();
 
+    for (let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
+      this.sound.add(`scream${number}`);
+    }
+
     // collider layer and obstacles
     this.hoomans.children.each((hooman: Hooman) => {
       this.physics.add.collider(hooman, this.layer, hooman.onHitObstacle, null);
@@ -103,6 +107,14 @@ export class GameScene extends Phaser.Scene {
           if (distance < 35) {
             hooman.onPanic();
           }
+        }
+        if (distance < 25) {
+          if (!hooman.playedSound) {
+            hooman.playedSound = true;
+            this.sound.play(`scream${Math.floor(Math.random() * 9) + 1 }`)
+          }
+        } else {
+          hooman.playedSound = false;
         }
       }, this);
     }, this);

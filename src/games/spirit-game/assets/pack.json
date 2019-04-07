@@ -12,6 +12,51 @@
         "url": "src/games/spirit-game/assets/maps/freshMap.json"
       },
       {
+        "type": "audio",
+        "key": "scream1",
+        "url": "src/games/spirit-game/assets/sounds/Madness_1.mp3"
+      },
+      {
+        "type": "audio",
+        "key": "scream2",
+        "url": "src/games/spirit-game/assets/sounds/Madness_2.mp3"
+      },
+      {
+        "type": "audio",
+        "key": "scream3",
+        "url": "src/games/spirit-game/assets/sounds/Madness_3.mp3"
+      },
+      {
+        "type": "audio",
+        "key": "scream4",
+        "url": "src/games/spirit-game/assets/sounds/Madness_4.mp3"
+      },
+      {
+        "type": "audio",
+        "key": "scream5",
+        "url": "src/games/spirit-game/assets/sounds/Madness_5.mp3"
+      },
+      {
+        "type": "audio",
+        "key": "scream6",
+        "url": "src/games/spirit-game/assets/sounds/Madness_6.mp3"
+      },
+      {
+        "type": "audio",
+        "key": "scream7",
+        "url": "src/games/spirit-game/assets/sounds/Madness_7.mp3"
+      },
+      {
+        "type": "audio",
+        "key": "scream8",
+        "url": "src/games/spirit-game/assets/sounds/Madness_8.mp3"
+      },
+      {
+        "type": "audio",
+        "key": "scream9",
+        "url": "src/games/spirit-game/assets/sounds/Madness_9.mp3"
+      },
+      {
         "type": "bitmapFont",
         "key": "font",
         "textureURL": "src/games/spirit-game/assets/font/font.png",
