@@ -2,6 +2,7 @@ export class Ghost extends Phaser.GameObjects.Sprite {
   // variables
   private speed: number;
   private accel: number;
+  private maxSpeed: number;
 
   // input
   private cursors: Phaser.Input.Keyboard.CursorKeys;
@@ -16,7 +17,8 @@ export class Ghost extends Phaser.GameObjects.Sprite {
   private initImage() {
     // variables
     this.speed = 100;
-    this.accel = 50;
+    this.accel = 30;
+    this.maxSpeed = 400;
 
     // image
     this.setOrigin(0.5, 0.5);
@@ -41,13 +43,13 @@ export class Ghost extends Phaser.GameObjects.Sprite {
   private handleInput() {
     // move ghost
     if (this.cursors.up.isDown) {
-      this.body.setVelocityY(this.body.velocity.y - this.accel);
+      this.body.setVelocityY(Math.max(this.body.velocity.y - this.accel, -this.maxSpeed));
     } else if (this.cursors.down.isDown) {
-      this.body.setVelocityY(this.body.velocity.y + this.accel);
+      this.body.setVelocityY(Math.min(this.body.velocity.y + this.accel, this.maxSpeed));
     } else if (this.cursors.left.isDown) {
-      this.body.setVelocityX(this.body.velocity.x - this.accel);
+      this.body.setVelocityX(Math.max(this.body.velocity.x - this.accel, -this.maxSpeed));
     } else if (this.cursors.right.isDown) {
-      this.body.setVelocityX(this.body.velocity.x + this.accel);
+      this.body.setVelocityX(Math.min(this.body.velocity.x + this.accel, this.maxSpeed));
     } else {
       //this.body.setVelocity(0, 0);
     }
