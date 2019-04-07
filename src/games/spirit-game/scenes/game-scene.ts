@@ -132,6 +132,7 @@ export class GameScene extends Phaser.Scene {
           y: object.y,
           key: "tankBlue"
         });
+        break;
       }
       case "enemy": {
         let enemy = new Enemy({
@@ -142,6 +143,7 @@ export class GameScene extends Phaser.Scene {
         });
 
         this.enemies.add(enemy);
+        break;
       }
       case "ghost1": {
         this.ghost1 = new Ghost({
@@ -150,6 +152,7 @@ export class GameScene extends Phaser.Scene {
           y: object.y,
           key: "ghost1"
         });
+        break;
       }
       default: {
         let obstacle = new Obstacle({
@@ -160,6 +163,7 @@ export class GameScene extends Phaser.Scene {
         });
 
         this.obstacles.add(obstacle);
+        break;
       }
     }
     });
