@@ -16,7 +16,7 @@ const config: GameConfig = {
   version: "1.0",
   width: 448,
   height: 256,
-  zoom: 2.4,
+  zoom: 2.5,
   type: Phaser.AUTO,
   parent: "game",
   scene: [BootScene, MenuScene, GameScene],
