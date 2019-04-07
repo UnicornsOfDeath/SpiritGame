@@ -50,6 +50,11 @@ export class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.player, this.layer);
     this.physics.add.collider(this.player, this.obstacles);
 
+    // collider layer and obstacles
+    this.physics.add.collider(this.ghost1, this.layer);
+    this.physics.add.collider(this.ghost1, this.obstacles);
+
+
     // collider for bullets
     this.physics.add.collider(
       this.player.getBullets(),
