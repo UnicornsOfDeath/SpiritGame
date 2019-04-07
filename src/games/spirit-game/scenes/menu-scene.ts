@@ -17,7 +17,7 @@ export class MenuScene extends Phaser.Scene {
 
   init(): void {
     this.startKey = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.S
+      Phaser.Input.Keyboard.KeyCodes.ENTER
     );
     this.startKey.isDown = false;
   }
@@ -28,7 +28,7 @@ export class MenuScene extends Phaser.Scene {
         this.sys.canvas.width / 2 - 120,
         this.sys.canvas.height / 2,
         "font",
-        "PRESS S TO PLAY",
+        "PRESS ENTER TO PLAY",
         30
       )
     );
@@ -38,8 +38,8 @@ export class MenuScene extends Phaser.Scene {
         this.sys.canvas.width / 2 - 120,
         this.sys.canvas.height / 2 - 100,
         "font",
-        "SPIRIT",
-        100
+        "Haunting Hole",
+        80
       )
     );
   }
