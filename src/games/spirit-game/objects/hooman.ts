@@ -2,11 +2,12 @@ export class Hooman extends Phaser.GameObjects.Sprite {
     // variables
     private speed: number;
     private moveVel: Phaser.Math.Vector2;
+    private key: string;
   
     constructor(params) {
       // Select random key
-      const key = `adventurer_${['m', 'f'][Phaser.Math.Between(0, 1)]}${Phaser.Math.Between(1, 4)}`
-      super(params.scene, params.x, params.y, key, params.frame);
+      super(params.scene, params.x, params.y, 'adventurer_f1', params.frame);
+      this.key = `adventurer_${['m', 'f'][Phaser.Math.Between(0, 1)]}${Phaser.Math.Between(1, 4)}`
   
       this.initImage();
       this.scene.add.existing(this);
@@ -24,6 +25,10 @@ export class Hooman extends Phaser.GameObjects.Sprite {
       this.setOrigin(0.5, 0.5);
       this.setDepth(0);
       this.setScale(4);
+
+      // Animation
+      this.anims.load(this.key + '_walk');
+      this.anims.play(this.key + '_walk');
     }
 
     onHitObstacle(hooman: Hooman): void {
