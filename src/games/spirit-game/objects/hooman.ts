@@ -47,8 +47,10 @@ export class Hooman extends Phaser.GameObjects.Sprite {
       this.moveVel = this.moveVel.add(v);
     }
 
-    onPanic() {
+    onPanic(): boolean {
+      const wasPanicked = this.panicCounter > 0;
       this.panicCounter = 100;
+      return !wasPanicked;
     }
 
     private randomMoveVel(): Phaser.Math.Vector2 {

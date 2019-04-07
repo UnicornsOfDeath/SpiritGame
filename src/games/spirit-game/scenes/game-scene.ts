@@ -105,16 +105,10 @@ export class GameScene extends Phaser.Scene {
         if (distance < 75) {
           hooman.onScared(ghost);
           if (distance < 35) {
-            hooman.onPanic();
+            if (hooman.onPanic()) {
+              this.sound.play(`scream${Math.floor(Math.random() * 9) + 1 }`);
+            }
           }
-        }
-        if (distance < 25) {
-          if (!hooman.playedSound) {
-            hooman.playedSound = true;
-            this.sound.play(`scream${Math.floor(Math.random() * 9) + 1 }`)
-          }
-        } else {
-          hooman.playedSound = false;
         }
       }, this);
     }, this);
