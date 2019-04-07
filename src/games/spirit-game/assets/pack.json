@@ -81,6 +81,21 @@
         "type": "image",
         "key": "treeLarge",
         "url": "./src/games/tank/assets/obstacles/tree-large.png"
+      },
+      {
+        "type": "sprite",
+        "key": "ghost1",
+        "url": "./src/games/tank/assets/sprites/ghost1.png"
+      },
+      {
+        "type": "sprite",
+        "key": "ghost2",
+        "url": "./src/games/tank/assets/sprites/ghost2.png"
+      },
+      {
+        "type": "sprite",
+        "key": "ghost3",
+        "url": "./src/games/tank/assets/sprites/ghost3.png"
       }
     ]
   }
