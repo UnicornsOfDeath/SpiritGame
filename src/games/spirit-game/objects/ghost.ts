@@ -50,16 +50,15 @@ export class Ghost extends Phaser.GameObjects.Sprite {
         this.speed,
         this.body.velocity
       );
-    }
-    if (this.cursors.left.isDown) {
+    } else if (this.cursors.left.isDown) {
       this.scene.physics.velocityFromRotation(
-        -Math.PI,
+        Math.PI,
         -this.speed,
         this.body.velocity
       );
     } else if (this.cursors.right.isDown) {
       this.scene.physics.velocityFromRotation(
-        Math.PI,
+        -Math.PI,
         this.speed,
         this.body.velocity
       );
