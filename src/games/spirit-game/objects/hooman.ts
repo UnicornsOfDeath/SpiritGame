@@ -60,6 +60,8 @@ export class Hooman extends Phaser.GameObjects.Sprite {
       if(Phaser.Geom.Rectangle.ContainsRect(hole.getBounds(), hooman.getBounds())) {
         hooman.dying = true;
 
+        hooman.body.velocity = hooman.body.velocity.normalize().scale(20);
+
         hooman.scene.tweens.add({
           targets: hooman,
           props: { scaleX: 0,
@@ -110,16 +112,14 @@ export class Hooman extends Phaser.GameObjects.Sprite {
     }
   
     private handleInput() {
-      if(!this.dying) {
-        // move
-        this.moveVel.normalize();
-        let v = this.moveVel.clone();
-        v = v.scale(this.speed);
-        if (this.panicCounter > 0)
-        {
-          v = v.scale(3);
-        }
-        this.body.velocity = v;
+      // move
+      this.moveVel.normalize();
+      let v = this.moveVel.clone();
+      v = v.scale(this.speed);
+      if (this.panicCounter > 0)
+      {
+        v = v.scale(3);
       }
+      this.body.velocity = v;
     }
   }
