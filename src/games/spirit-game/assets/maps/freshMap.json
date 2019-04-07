@@ -21,17 +21,6 @@
          "objects":[
                 {
                  "height":80,
-                 "id":119,
-                 "name":"",
-                 "rotation":0,
-                 "type":"enemy",
-                 "visible":true,
-                 "width":80,
-                 "x":1120,
-                 "y":800
-                }, 
-                {
-                 "height":80,
                  "id":117,
                  "name":"",
                  "rotation":0,
@@ -40,72 +29,6 @@
                  "width":80,
                  "x":320,
                  "y":240
-                }, 
-                {
-                 "height":80,
-                 "id":123,
-                 "name":"",
-                 "rotation":0,
-                 "type":"enemy",
-                 "visible":true,
-                 "width":80,
-                 "x":480,
-                 "y":880
-                }, 
-                {
-                 "height":80,
-                 "id":124,
-                 "name":"",
-                 "rotation":0,
-                 "type":"enemy",
-                 "visible":true,
-                 "width":80,
-                 "x":1000,
-                 "y":1900
-                }, 
-                {
-                 "height":80,
-                 "id":125,
-                 "name":"",
-                 "rotation":0,
-                 "type":"enemy",
-                 "visible":true,
-                 "width":80,
-                 "x":1360,
-                 "y":1760
-                }, 
-                {
-                 "height":80,
-                 "id":126,
-                 "name":"",
-                 "rotation":0,
-                 "type":"enemy",
-                 "visible":true,
-                 "width":80,
-                 "x":2080,
-                 "y":1160
-                }, 
-                {
-                 "height":80,
-                 "id":127,
-                 "name":"",
-                 "rotation":0,
-                 "type":"enemy",
-                 "visible":true,
-                 "width":80,
-                 "x":2020,
-                 "y":1840
-                }, 
-                {
-                 "height":80,
-                 "id":128,
-                 "name":"",
-                 "rotation":0,
-                 "type":"enemy",
-                 "visible":true,
-                 "width":80,
-                 "x":1640,
-                 "y":620
                 }, 
                 {
                  "height":80,
