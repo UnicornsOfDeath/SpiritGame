@@ -1,4 +1,5 @@
 import { Ghost } from "./ghost";
+import { Hole } from "./obstacles/hole";
 
 export class Hooman extends Phaser.GameObjects.Sprite {
     // variables
@@ -9,6 +10,8 @@ export class Hooman extends Phaser.GameObjects.Sprite {
 
     playedSound: boolean;
 
+    private dying: boolean = false;
+  
     constructor(params) {
       // Select random key
       super(params.scene, params.x, params.y, 'adventurer_f1', params.frame);
@@ -28,7 +31,7 @@ export class Hooman extends Phaser.GameObjects.Sprite {
   
       // image
       this.setOrigin(0.5, 0.5);
-      this.setDepth(0);
+      this.setDepth(10);
 
       // animation
       this.anims.load(this.key + '_walk');
@@ -53,6 +56,29 @@ export class Hooman extends Phaser.GameObjects.Sprite {
       return !wasPanicked;
     }
 
+    onHitHole(hooman: Hooman, hole: Hole): boolean {
+      if(Phaser.Geom.Rectangle.ContainsRect(hole.getBounds(), hooman.getBounds())) {
+        hooman.dying = true;
+
+        hooman.scene.tweens.add({
+          targets: hooman,
+          props: { scaleX: 0,
+                    scaleY: 0 },
+          delay: 0,
+          duration: 1000,
+          ease: "Expo",
+          easeParams: null,
+          onComplete: function () {
+            hooman.destroy()
+          }
+        });
+
+        return false;
+      }
+
+      return true;
+    }
+
     private randomMoveVel(): Phaser.Math.Vector2 {
       switch (Phaser.Math.Between(0, 3)) {
         case 0: {
@@ -75,21 +101,25 @@ export class Hooman extends Phaser.GameObjects.Sprite {
         this.panicCounter--;
       }
       if (this.active) {
-        this.handleInput();
+        if(!this.dying) {
+          this.handleInput();
+        }
       } else {
         this.destroy();
       }
     }
   
     private handleInput() {
-      // move
-      this.moveVel.normalize();
-      let v = this.moveVel.clone();
-      v = v.scale(this.speed);
-      if (this.panicCounter > 0)
-      {
-        v = v.scale(3);
+      if(!this.dying) {
+        // move
+        this.moveVel.normalize();
+        let v = this.moveVel.clone();
+        v = v.scale(this.speed);
+        if (this.panicCounter > 0)
+        {
+          v = v.scale(3);
+        }
+        this.body.velocity = v;
       }
-      this.body.velocity = v;
     }
   }

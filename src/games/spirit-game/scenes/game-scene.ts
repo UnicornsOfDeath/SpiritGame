@@ -8,6 +8,7 @@
 import { Ghost } from "../objects/ghost";
 import { Obstacle } from "../objects/obstacles/obstacle";
 import { Hooman } from "../objects/hooman";
+import { Hole } from "../objects/obstacles/hole";
 
 export class GameScene extends Phaser.Scene {
   private map: Phaser.Tilemaps.Tilemap;
@@ -16,6 +17,7 @@ export class GameScene extends Phaser.Scene {
 
   private ghosts: Phaser.GameObjects.Group;
   private hoomans: Phaser.GameObjects.Group;
+  private holes: Phaser.GameObjects.Group;
   private obstacles: Phaser.GameObjects.Group;
 
   constructor() {
@@ -75,6 +77,11 @@ export class GameScene extends Phaser.Scene {
     this.hoomans = this.add.group({
       /*classType: Hooman*/
     });
+
+    this.holes = this.add.group({
+      /*classType: Hole*/
+      runChildUpdate: true
+    });
     this.convertObjects();
 
     for (let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
@@ -86,6 +93,7 @@ export class GameScene extends Phaser.Scene {
       this.physics.add.collider(hooman, this.layer, hooman.onHitObstacle, null);
       this.physics.add.collider(hooman, this.obstacles, hooman.onHitObstacle, null);
       this.physics.add.collider(hooman, this.hoomans, hooman.onHitObstacle, null);
+      this.physics.add.overlap(hooman, this.holes, null, hooman.onHitHole)
     })
   }
 
@@ -158,6 +166,18 @@ export class GameScene extends Phaser.Scene {
         });
 
         this.hoomans.add(hooman);
+        break;
+      }
+      case "hole": {
+        let hole = new Hole({
+          scene: this,
+          x: object.x,
+          y: object.y,
+          width: object.width,
+          height: object.height
+        });
+
+        this.holes.add(hole);
         break;
       }
       default: {
