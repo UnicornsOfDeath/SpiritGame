@@ -43,16 +43,26 @@ export class Ghost extends Phaser.GameObjects.Sprite {
 
   private handleInput() {
     // move ghost
+    let v = new Phaser.Math.Vector2(0, 0);
     if (this.cursors.up.isDown) {
-      this.body.setVelocityY(Math.max(this.body.velocity.y - this.accel, -this.maxSpeed));
+      v.y = -1;
     } else if (this.cursors.down.isDown) {
-      this.body.setVelocityY(Math.min(this.body.velocity.y + this.accel, this.maxSpeed));
-    } else if (this.cursors.left.isDown) {
-      this.body.setVelocityX(Math.max(this.body.velocity.x - this.accel, -this.maxSpeed));
+      v.y = 1;
+    }
+    if (this.cursors.left.isDown) {
+      v.x = -1;
     } else if (this.cursors.right.isDown) {
-      this.body.setVelocityX(Math.min(this.body.velocity.x + this.accel, this.maxSpeed));
+      v.x = 1;
     } else {
       //this.body.setVelocity(0, 0);
+    }
+    v = v.normalize();
+    v = v.scale(this.accel);
+    this.body.velocity = this.body.velocity.add(v);
+    if (this.body.velocity.length() > this.maxSpeed) {
+      v = this.body.velocity;
+      v.normalize();
+      this.body.velocity = v.scale(this.maxSpeed);
     }
   }
 }
