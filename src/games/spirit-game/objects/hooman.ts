@@ -15,7 +15,7 @@ export class Hooman extends Phaser.GameObjects.Sprite {
     private initImage() {
       // variables
       this.speed = 100;
-      this.moveVel = new Phaser.Math.Vector2(1, 0);
+      this.moveVel = this.randomMoveVel();
   
       // image
       this.setOrigin(0.5, 0.5);
@@ -25,6 +25,27 @@ export class Hooman extends Phaser.GameObjects.Sprite {
     
       // physics
       this.scene.physics.world.enable(this);
+    }
+
+    onHitObstacle(hooman: Hooman): void {
+      hooman.moveVel = hooman.randomMoveVel();
+    }
+
+    private randomMoveVel(): Phaser.Math.Vector2 {
+      switch (Phaser.Math.Between(0, 3)) {
+        case 0: {
+          return new Phaser.Math.Vector2(0, 1);
+        }
+        case 1: {
+          return new Phaser.Math.Vector2(0, -1);
+        }
+        case 2: {
+          return new Phaser.Math.Vector2(1, 0);
+        }
+        case 3: {
+          return new Phaser.Math.Vector2(-1, 0);
+        }
+      }
     }
   
     update(): void {

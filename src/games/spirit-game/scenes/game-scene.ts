@@ -105,8 +105,9 @@ export class GameScene extends Phaser.Scene {
     }, this);
 
     this.hoomans.children.each((hooman: Hooman) => {
-      this.physics.add.collider(hooman, this.layer);
-      this.physics.add.collider(hooman, this.obstacles);
+      this.physics.add.collider(hooman, this.layer, hooman.onHitObstacle, null);
+      this.physics.add.collider(hooman, this.obstacles, hooman.onHitObstacle, null);
+      this.physics.add.collider(hooman, this.hoomans, hooman.onHitObstacle, null);
     })
 
     this.cameras.main.startFollow(this.ghost1);
