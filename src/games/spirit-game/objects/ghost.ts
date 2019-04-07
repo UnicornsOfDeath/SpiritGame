@@ -1,6 +1,5 @@
 export class Ghost extends Phaser.GameObjects.Sprite {
   // variables
-  private speed: number;
   private accel: number;
   private maxSpeed: number;
 
@@ -16,7 +15,6 @@ export class Ghost extends Phaser.GameObjects.Sprite {
 
   private initImage() {
     // variables
-    this.speed = 100;
     this.accel = 30;
     this.maxSpeed = 400;
 

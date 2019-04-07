@@ -113,6 +113,78 @@
           "frameWidth": 16,
           "frameHeight": 16
         }
+      },
+      {
+        "type": "spritesheet",
+        "key": "adventurer_f1",
+        "url": "./src/games/spirit-game/assets/sprites/adventurer_f1.png",
+        "frameConfig": {
+          "frameWidth": 16,
+          "frameHeight": 16
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "adventurer_f2",
+        "url": "./src/games/spirit-game/assets/sprites/adventurer_f2.png",
+        "frameConfig": {
+          "frameWidth": 16,
+          "frameHeight": 16
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "adventurer_f3",
+        "url": "./src/games/spirit-game/assets/sprites/adventurer_f3.png",
+        "frameConfig": {
+          "frameWidth": 16,
+          "frameHeight": 16
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "adventurer_f4",
+        "url": "./src/games/spirit-game/assets/sprites/adventurer_f4.png",
+        "frameConfig": {
+          "frameWidth": 16,
+          "frameHeight": 16
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "adventurer_m1",
+        "url": "./src/games/spirit-game/assets/sprites/adventurer_m1.png",
+        "frameConfig": {
+          "frameWidth": 16,
+          "frameHeight": 16
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "adventurer_m2",
+        "url": "./src/games/spirit-game/assets/sprites/adventurer_m2.png",
+        "frameConfig": {
+          "frameWidth": 16,
+          "frameHeight": 16
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "adventurer_m3",
+        "url": "./src/games/spirit-game/assets/sprites/adventurer_m3.png",
+        "frameConfig": {
+          "frameWidth": 16,
+          "frameHeight": 16
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "adventurer_m4",
+        "url": "./src/games/spirit-game/assets/sprites/adventurer_m4.png",
+        "frameConfig": {
+          "frameWidth": 16,
+          "frameHeight": 16
+        }
       }
     ]
   }

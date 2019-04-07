@@ -9,6 +9,7 @@ import { Player } from "../objects/player";
 import { Enemy } from "../objects/enemy";
 import { Ghost } from "../objects/ghost";
 import { Obstacle } from "../objects/obstacles/obstacle";
+import { Hooman } from "../objects/hooman";
 
 export class GameScene extends Phaser.Scene {
   private map: Phaser.Tilemaps.Tilemap;
@@ -18,6 +19,7 @@ export class GameScene extends Phaser.Scene {
   private player: Player;
   private ghost1: Ghost;
   private enemies: Phaser.GameObjects.Group;
+  private hoomans: Phaser.GameObjects.Group;
   private obstacles: Phaser.GameObjects.Group;
 
   constructor() {
@@ -44,13 +46,14 @@ export class GameScene extends Phaser.Scene {
     this.enemies = this.add.group({
       /*classType: Enemy*/
     });
+    this.hoomans = this.add.group({
+      /*classType: Hooman*/
+    });
     this.convertObjects();
 
     // collider layer and obstacles
     this.physics.add.collider(this.player, this.layer);
     this.physics.add.collider(this.player, this.obstacles);
-
-    // collider layer and obstacles
     this.physics.add.collider(this.ghost1, this.layer);
     this.physics.add.collider(this.ghost1, this.obstacles);
 
@@ -101,6 +104,11 @@ export class GameScene extends Phaser.Scene {
       );
     }, this);
 
+    this.hoomans.children.each((hooman: Hooman) => {
+      this.physics.add.collider(hooman, this.layer);
+      this.physics.add.collider(hooman, this.obstacles);
+    })
+
     this.cameras.main.startFollow(this.ghost1);
   }
 
@@ -121,6 +129,10 @@ export class GameScene extends Phaser.Scene {
         enemy.getBarrel().angle =
           (angle + Math.PI / 2) * Phaser.Math.RAD_TO_DEG;
       }
+    }, this);
+
+    this.hoomans.children.each((hooman: Hooman) => {
+      hooman.update();
     }, this);
   }
 
@@ -157,6 +169,16 @@ export class GameScene extends Phaser.Scene {
           y: object.y,
           key: "ghost1"
         });
+        break;
+      }
+      case "hooman": {
+        let hooman = new Hooman({
+          scene: this,
+          x: object.x,
+          y: object.y
+        });
+
+        this.hoomans.add(hooman);
         break;
       }
       default: {
